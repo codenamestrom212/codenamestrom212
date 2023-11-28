@@ -1,0 +1,23 @@
+1. SELECT * FROM progdi WHERE progdi_id ='240';
+2. SELECT * FROM progdi WHERE progdi_id ='110';
+3. SELECT * FROM mahasiswa JOIN progdi ON mahasiswa.progdi_id = progdi.progdi_id WHERE mahasiswa.nama LIKE '%a%';
+4. SELECT * 
+FROM mahasiswa
+JOIN progdi ON mahasiswa.progdi_id = progdi.progdi_id
+WHERE mahasiswa.progdi_id IN (240, 230);
+5. SELECT * 
+FROM mahasiswa
+JOIN progdi ON mahasiswa.progdi_id = progdi.progdi_id
+WHERE mahasiswa.progdi_id IN (110, 120);
+6. SELECT * FROM mahasiswa JOIN progdi USING (progdi_id) WHERE LEFT (nim,2) = "22";
+7. SELECT * FROM mahasiswa JOIN progdi USING (progdi_id) WHERE LEFT (nim,2) = "23";
+8. SELECT progdi.nama_progdi, COUNT(mahasiswa.progdi_id)
+FROM mahasiswa
+JOIN progdi ON mahasiswa.progdi_id = progdi.progdi_id
+GROUP BY progdi.nama_progdi;
+9. SELECT progdi.*, COUNT(mahasiswa.nim) AS jml_mhs FROM progdi
+JOIN mahasiswa ON progdi.progdi_id = mahasiswa.progdi_id WHERE
+progdi.progdi_id LIKE "2%" GROUP BY progdi.progdi_id;
+10. SELECT progdi.*, COUNT(mahasiswa.nim) AS jml_mhs FROM progdi
+JOIN mahasiswa ON progdi.progdi_id = mahasiswa.progdi_id WHERE
+progdi.progdi_id LIKE "1%" GROUP BY progdi.progdi_id;
